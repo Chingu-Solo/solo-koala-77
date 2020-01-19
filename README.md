@@ -6,7 +6,7 @@ This is a Tier 2 Solo Project made for [Chingu](https://www.chingu.io) Community
 
 Tier 2 realizes this project as a fully developed front-end app. A back-end is not necessary.
 
-![gif](https://solofree.docs.chingu.io/static/tier2Preview-164064b4bb7047c9b05f08ec07f30e67.gif)
+![gif](./public/tier2.gif)
 
 ## 🧰 Built With
 
