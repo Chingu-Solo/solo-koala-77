@@ -33,7 +33,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 
 #### Structure
 
-- [ ] Header with minor navigation _(Logo and Catalog/Featured/Articles/About link list)_
+- [x] Header with minor navigation _(Logo and Catalog/Featured/Articles/About link list)_
 - [ ] Nav with Major navigation / page-manipulation _(search, custom text, font-size, dark/light mode, grid/list mode, and reset)_
 - [ ] Main section for the font cards
 - [ ] Font cards which display the Font Name, the sample text, and an add button (the font creator is **not** available via the api, so it is not required in tiers 2 or 3)
