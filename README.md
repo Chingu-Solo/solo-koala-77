@@ -12,6 +12,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 
 - [React](https://reactjs.org/) - The web framework used
 - [style-components 💅](https://styled-components.com/) - CSS in JS
+- [FontAwesome/react](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component using SVG with JS
 
 ## 🧝‍♂️ Author
 
@@ -34,7 +35,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 #### Structure
 
 - [x] Header with minor navigation _(Logo and Catalog/Featured/Articles/About link list)_
-- [ ] Nav with Major navigation / page-manipulation _(search, custom text, font-size, dark/light mode, grid/list mode, and reset)_
+- [x] Nav with Major navigation / page-manipulation _(search, custom text, font-size, dark/light mode, grid/list mode, and reset)_
 - [ ] Main section for the font cards
 - [ ] Font cards which display the Font Name, the sample text, and an add button (the font creator is **not** available via the api, so it is not required in tiers 2 or 3)
 - [ ] Back-to-top button that allows users to click and scroll back up to the top _(there could be up to 959 fonts displayed, so you need this!)_
