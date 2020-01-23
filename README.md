@@ -11,8 +11,10 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 ## 🧰 Built With
 
 - [React](https://reactjs.org/) - The web framework used
+- [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 - [style-components 💅](https://styled-components.com/) - CSS in JS
 - [FontAwesome/react](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component using SVG with JS
+- [Google Fonts API](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component using SVG with JS
 
 ## 🧝‍♂️ Author
 
@@ -36,14 +38,14 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 
 - [x] Header with minor navigation _(Logo and Catalog/Featured/Articles/About link list)_
 - [x] Nav with Major navigation / page-manipulation _(search, custom text, font-size, dark/light mode, grid/list mode, and reset)_
-- [ ] Main section for the font cards
-- [ ] Font cards which display the Font Name, the sample text, and an add button (the font creator is **not** available via the api, so it is not required in tiers 2 or 3)
+- [x] Main section for the font cards
+- [x] Font cards which display the Font Name, the sample text, and an add button (the font creator is **not** available via the api, so it is not required in tiers 2 or 3)
 - [ ] Back-to-top button that allows users to click and scroll back up to the top _(there could be up to 959 fonts displayed, so you need this!)_
 - [ ] Footer section with your developer information
 
 #### Style
 
-- [ ] Sample text in each card should be displayed in the corresponding font
+- [x] Sample text in each card should be displayed in the corresponding font
 - [ ] Buttons/links should be evident (make sure the cursor changes, etc.)
 - [ ] Implement a way to handle overflow from sample text in the font cards, as the font size is adjustable
 
