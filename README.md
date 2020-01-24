@@ -51,7 +51,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 
 #### Functionality
 
-- [ ] Text typed into the custom text (type something) box should immediately change the sample text in each font card
+- [x] Text typed into the custom text (type something) box should immediately change the sample text in each font card
 - [ ] The sample text should return to the default sample if the input box (type something) no longer has any input
 - [ ] Font size chooser should have at least four sizes and should immediately change the sample text font size in each font card
 - [ ] Implement the clickable 'reset' icon on the far right of the major navigation; it should reset the page as if the page were reloaded _(do not actually reset the page)_

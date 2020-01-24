@@ -22,9 +22,10 @@ const Header = () => {
 const HeaderWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
+
   border-bottom: 1px solid #000;
   border-color: rgba(0, 0, 0, 0.14);
-  padding: 15px 45px;
 `;
 
 const NavWrap = styled.div`

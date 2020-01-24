@@ -14,17 +14,18 @@ const FontsCard = props => {
   return (
     <Wrap>
       {/* map the fonts array, create the <link> and return the Card with the styled font-family*/}
-      {props.fontsArray.map(element => {
+      {props.fontsArray.map((element, index) => {
         return (
           appendLink(element.family),
           (
-            <Card style={{ fontFamily: `'${element.family}'` }}>
+            <Card key={index} style={{ fontFamily: `'${element.family}'` }}>
               <div className="fontTitle">
                 {element.family}
                 <button>+</button>
               </div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-              corporis.
+              {props.typeValue.length === 0
+                ? "The quick brown fox"
+                : props.typeValue}
             </Card>
           )
         );
@@ -45,6 +46,7 @@ const Card = styled.li`
   margin-bottom: 66px;
   border-top: 1px solid transparent;
   border-top-color: rgba(0, 0, 0, 0.4);
+  font-size: 40px;
 
   .fontTitle {
     display: flex;

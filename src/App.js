@@ -25,6 +25,8 @@ library.add(fab, far, faListAlt, faRedoAlt, faSun, faMoon, faFont);
 //
 const App = () => {
   const [fonts, setFonts] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [typeValue, setTypeValue] = useState("");
 
   //! Note that handling promises with the more concise async/await syntax
   //! requires creating a separate function.
@@ -38,21 +40,33 @@ const App = () => {
         sort: "popularity"
       }
     });
-
     setFonts(response.data.items);
   };
-
   // calling the axios function
   useEffect(() => {
     getFonts();
   }, []);
-  console.log(fonts);
+
+  const handleSetupChange = value => {
+    return setSearchValue(value);
+  };
+  const handleTypeChange = value => {
+    return setTypeValue(value);
+  };
+
   return (
     <Wrap>
       <Normalize />
       <Header />
-      <Toolbar />
-      <FontsCard fontsArray={fonts} />
+      <Toolbar
+        onSearchValue={handleSetupChange}
+        onTypeValue={handleTypeChange}
+      />
+      <FontsCard
+        fontsArray={fonts}
+        searchValue={searchValue}
+        typeValue={typeValue}
+      />
     </Wrap>
   );
 };
