@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"; // used to normalize browser style
 
 // My Components
 import Header from "./components/header/Header";
@@ -28,40 +28,46 @@ const App = () => {
   const [searchValue, setSearchValue] = useState("");
   const [typeValue, setTypeValue] = useState("");
 
-  //! Note that handling promises with the more concise async/await syntax
-  //! requires creating a separate function.
-  //! (Why? The effect callback function cannot be async.)
-  // use async / await in separate function, then call
-  // function back in useEffect
-  const getFonts = async () => {
+  //* ----- FETCHING DATA WITH AXIOS ---------------- */
+  // Note that handling promises with the more concise async/await syntax
+  // requires creating a separate function because the effect callback function cannot be async.)
+  // use async / await in separate function, then call function back in useEffect
+  const getFonts = async font => {
     const response = await googleFonts.get("/webfonts", {
       params: {
         key: "AIzaSyBnR7OcpIdnPjygLbpBIWZIbXX5sdKSDLM",
         sort: "popularity"
       }
     });
-    setFonts(response.data.items);
+    setFonts(response.data.items.map(font => font.family));
   };
-  // calling the axios function
+  // fetch all fonts only when app first render
   useEffect(() => {
     getFonts();
   }, []);
 
+  console.log(fonts);
+
+  // Access the value of the Search Input
   const handleSetupChange = value => {
-    return setSearchValue(value);
+    return setSearchValue(value); // Update searchValue state
   };
+  // Access the value of the Type Input
   const handleTypeChange = value => {
-    return setTypeValue(value);
+    return setTypeValue(value); // Update typeValue state
   };
 
   return (
     <Wrap>
       <Normalize />
+
       <Header />
+
       <Toolbar
-        onSearchValue={handleSetupChange}
+        onSearchValue={handleSetupChange} // pass it as props
         onTypeValue={handleTypeChange}
       />
+
       <FontsCard
         fontsArray={fonts}
         searchValue={searchValue}
