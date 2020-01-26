@@ -1,33 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const FontsCard = props => {
-  // create a <link> element in the head with font-family
-  const appendLink = font => {
-    const link = document.createElement("link");
-    link.href = `https://fonts.googleapis.com/css?family=${font}&display=swap`;
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    document.head.appendChild(link);
-  };
+  // append fonts link only at first render
+  useEffect(() => {
+    props.fontsArray.map(element => {
+      const link = document.createElement("link");
+      link.href = `https://fonts.googleapis.com/css?family=${element}|&display=swap`;
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      document.head.appendChild(link);
+    });
+  }, [props.fontsArray]);
 
   return (
     <Wrap>
       {/* map the fonts array, create the <link> and return the Card with the styled font-family*/}
       {props.fontsArray.map((element, index) => {
         return (
-          appendLink(element.family),
-          (
-            <Card key={index} style={{ fontFamily: `'${element.family}'` }}>
-              <div className="fontTitle">
-                {element.family}
-                <button>+</button>
-              </div>
-              {props.typeValue.length === 0
-                ? "The quick brown fox"
-                : props.typeValue}
-            </Card>
-          )
+          // appendLink(element),
+          <Card key={index} style={{ fontFamily: `'${element}'` }}>
+            <div className="fontTitle">
+              {element.family}
+              <button>+</button>
+            </div>
+            {props.typeValue.length === 0
+              ? "The quick brown fox"
+              : props.typeValue}
+          </Card>
         );
       })}
     </Wrap>
