@@ -5,12 +5,13 @@ import styled from "styled-components";
 // import Search from "./Search";
 
 const Toolbar = ({ onSearchValue, onTypeValue }) => {
+  // get the value of the Search Input
   const searchChange = e => {
-    return onSearchValue(e.target.value);
+    return onSearchValue(e.target.value); // get the value and pass the value to the callback (parameter) so it's accessible by the parent
   };
-
+  // get the value of the Type Input
   const typeChange = e => {
-    return onTypeValue(e.target.value);
+    return onTypeValue(e.target.value); // get the value pass the value to the callback (parameter) so it's accessible by the parent
   };
 
   return (
