@@ -8,10 +8,19 @@ const Header = () => {
     <HeaderWrap>
       <Logo />
       <NavWrap>
-        <NavItem>Catalog</NavItem>
-        <NavItem>Featured</NavItem>
-        <NavItem>Articles</NavItem>
-        <NavItem>About</NavItem>
+        <NavItem href="/">Catalog</NavItem>
+        <NavItem href="https://fonts.google.com/featured" target="blank">
+          Featured
+        </NavItem>
+        <NavItem
+          href="https://design.google/library/google-fonts/?utm_source=Google&utm_medium=Fonts&utm_campaign=Article%20Tab"
+          target="blank"
+        >
+          Articles
+        </NavItem>
+        <NavItem href="https://fonts.google.com/about" target="blank">
+          About
+        </NavItem>
       </NavWrap>
     </HeaderWrap>
   );
@@ -31,8 +40,9 @@ const HeaderWrap = styled.div`
 const NavWrap = styled.div`
   display: flex;
 `;
-const NavItem = styled.div`
+const NavItem = styled.a`
   /* When active --> color: #ff5252; */
+  text-decoration: none;
   color: rgba(0, 0, 0, 0.6);
   margin-left: 32px;
   font-size: 14px;
