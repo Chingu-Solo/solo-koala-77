@@ -1,46 +1,91 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
 import styled from "styled-components";
+// import Card from "./Card"
+
+// === COMPONENT === \\
 
 const FontsCard = props => {
-  // append fonts link only at first render
-  useEffect(() => {
-    props.fontsArray.map(element => {
-      const link = document.createElement("link");
-      link.href = `https://fonts.googleapis.com/css?family=${element}|&display=swap`;
-      link.rel = "stylesheet";
-      link.type = "text/css";
-      document.head.appendChild(link);
-    });
-  }, [props.fontsArray]);
+  // <----------------------------
+  // === STATES === \\
+  const [nodeElements, setNodeElements] = useState([]);
+  // ---------------------------->
 
-  return (
-    <Wrap>
-      {/* map the fonts array, create the <link> and return the Card with the styled font-family*/}
-      {props.fontsArray.map((element, index) => {
-        return (
-          // appendLink(element),
-          <Card key={index} style={{ fontFamily: `'${element}'` }}>
-            <div className="fontTitle">
-              {element.family}
-              <button>+</button>
-            </div>
-            {props.typeValue.length === 0
-              ? "The quick brown fox"
-              : props.typeValue}
-          </Card>
-        );
-      })}
-    </Wrap>
-  );
+  // <---------------------------
+  // Pass the nodeList from querySelectorAll to nodeElements when the component render /
+  useEffect(() => {
+    setNodeElements(document.querySelectorAll(".card"));
+  }, []);
+  // --------------------------->
+
+  // <---------------------------
+  // INTERSECTION OBSERVER \\
+  useEffect(() => {
+    // This option array let you control when the observer is invoked
+    const options = {
+      root: document.querySelector(".section"), // the elements that is used as viewport ( default to the browser viewport if not specified)
+      rootMargin: "0px", // margin around the root before computing intersections ( default to all zeros)
+      threshold: 1 // between 0 - 1 ( default is 0, means as soon as is visible, 1 needs to be fully visible)
+    };
+    // creating the observer
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          // if it's not in the root viewport
+          return; // do nothing
+        }
+        // else
+        // convert the Font with the valid format in order to import it (i.e Open+Sans)
+        const fontLink = entry.target.firstChild.firstChild.data
+          .split(" ")
+          .join("+");
+        // append a <link> to the <head> for the viewed elements
+        const link = document.createElement("link");
+        link.href = `https://fonts.googleapis.com/css?family=${fontLink}&display=swap`;
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        document.head.appendChild(link);
+        // unobserve if the element is not in the viewport
+        console.log(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, options);
+    // Observe each element in the nodeElements array
+    nodeElements.forEach(element => {
+      observer.observe(element);
+    });
+  }, [nodeElements]);
+  // --------------------------->
+
+  const fonts = props.fontsObject.map((font, index) => {
+    return (
+      <Card
+        className={`${font.family.split(" ").join("")} card`}
+        key={index}
+        style={{
+          fontFamily: `"${font.family}"`
+        }}
+      >
+        <div className="fontTitle">
+          {font.family}
+          <button>+</button>
+        </div>
+        {props.typeValue.length === 0 ? "The quick brown fox" : props.typeValue}
+      </Card>
+      // <Card font={font} index={index}/>
+    );
+  });
+
+  return <Wrap>{fonts}</Wrap>;
 };
 
 //* styled-component < 💅>
-const Wrap = styled.ol`
+const Wrap = styled.section`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
 `;
-const Card = styled.li`
+const Card = styled.div`
   width: calc(30% - 20px + 0px);
   margin-right: 40px;
   margin-bottom: 66px;
