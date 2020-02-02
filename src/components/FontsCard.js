@@ -23,7 +23,7 @@ const FontsCard = props => {
   useEffect(() => {
     // This option array let you control when the observer is invoked
     const options = {
-      root: document.querySelector(".section"), // the elements that is used as viewport ( default to the browser viewport if not specified)
+      root: null, // the elements that is used as viewport ( default to the browser viewport if not specified)
       rootMargin: "0px", // margin around the root before computing intersections ( default to all zeros)
       threshold: 1 // between 0 - 1 ( default is 0, means as soon as is visible, 1 needs to be fully visible)
     };
