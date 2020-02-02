@@ -95,13 +95,13 @@ const App = () => {
 // <---------------------------
 //* styled-component < 💅>
 const Wrap = styled.div`
-  font-family: "Roboto";
   box-sizing: border-box;
 `;
 
 // Reset styling
 const Normalize = createGlobalStyle`
 *{
+font-family: "Roboto";
   box-sizing: border-box;
 }
 body{
