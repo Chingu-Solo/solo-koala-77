@@ -28,7 +28,7 @@ const Header = () => {
 
 //* styled-component < 💅>
 
-const HeaderWrap = styled.div`
+const HeaderWrap = styled.header`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -37,7 +37,7 @@ const HeaderWrap = styled.div`
   border-color: rgba(0, 0, 0, 0.14);
 `;
 
-const NavWrap = styled.div`
+const NavWrap = styled.nav`
   display: flex;
 `;
 const NavItem = styled.a`
