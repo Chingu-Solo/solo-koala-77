@@ -1,11 +1,11 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components"; // used to normalize browser style
-
 // My Components
 import googleFonts from "./api/googleFonts";
 import Header from "./components/header/Header";
 import Toolbar from "./components/toolbar/Toolbar";
+import FontsCard from "./components/FontsCard";
 
 // Font Awesome Library
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -18,6 +18,7 @@ import {
   faMoon,
   faFont
 } from "@fortawesome/free-solid-svg-icons";
+
 library.add(fab, far, faListAlt, faRedoAlt, faSun, faMoon, faFont);
 
 // === COMPONENT === \\
@@ -31,11 +32,6 @@ const App = () => {
   // ---------------------------->
 
   // <----------------------------
-  // Lazy import FontsCard component /
-  const FontsCard = lazy(() => import("./components/FontsCard"));
-  // --------------------------->
-
-  // <----------------------------
   // FETCHING DATA WITH AXIOS  /
   //* Note that handling promises with the more concise async/await syntax
   //* requires creating a separate function because the effect callback function cannot be async.)
@@ -47,7 +43,7 @@ const App = () => {
         sort: "popularity"
       }
     });
-
+    console.log(response.data.items);
     setFontsObject(response.data.items); // update state with promise
   };
   // --------------------------->
@@ -81,23 +77,17 @@ const App = () => {
         onSearchValue={handleSetupChange} // pass it as props
         onTypeValue={handleTypeChange}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <FontsCard
-          fontsObject={fontsObject}
-          searchValue={searchValue}
-          typeValue={typeValue}
-        />
-      </Suspense>
+      <FontsCard
+        searchValue={searchValue}
+        typeValue={typeValue}
+        fontsObject={fontsObject}
+      ></FontsCard>
     </Wrap>
   );
 };
 
 // <---------------------------
 //* styled-component < 💅>
-const Wrap = styled.div`
-  box-sizing: border-box;
-`;
-
 // Reset styling
 const Normalize = createGlobalStyle`
 *{
@@ -110,4 +100,7 @@ body{
 }
 `;
 
+const Wrap = styled.div`
+  box-sizing: border-box;
+`;
 export default App;
