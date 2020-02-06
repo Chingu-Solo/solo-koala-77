@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Card = props => {
   return (
-    <Card
-      className={`${props.font.family.split(" ").join("")} card`}
+    <MyCard
+      className="card"
       key={props.index}
       style={{
         fontFamily: `"${props.font.family}"`
@@ -15,11 +15,26 @@ const Card = props => {
         <button>+</button>
       </div>
       {props.typeValue.length === 0 ? "The quick brown fox" : props.typeValue}
-    </Card>
+    </MyCard>
   );
 };
 
 //* styled-component < 💅>
-// const Card = styled.div``;
+const MyCard = styled.div`
+  margin-right: 40px;
+  margin-bottom: 66px;
+  border-top: 1px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.4);
+  font-size: 40px;
+
+  .fontTitle {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9pt;
+    margin-bottom: 20px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+`;
 
 export default Card;
