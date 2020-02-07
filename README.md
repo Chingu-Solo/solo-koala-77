@@ -13,6 +13,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 - [React](https://reactjs.org/) - The web framework used
 - [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 - [style-components 💅](https://styled-components.com/) - CSS in JS
+- [react-lazyload](https://github.com/twobin/react-lazyload) - Lazy load your component, image or anything matters the performance.
 - [FontAwesome/react](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component using SVG with JS
 - [Google Fonts API](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component using SVG with JS
 

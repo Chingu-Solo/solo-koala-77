@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Card = props => {
+  // <----------------------------
+  // ALL THE STATES /
+  const [url, setUrl] = useState(""); // 300 (Regular) url
+  // ---------------------------->
+  //
+
+  useEffect(() => {
+    // extract Regular url if not available get the first one available
+    props.font.files[300]
+      ? setUrl(props.font.files[300])
+      : setUrl(Object.values(props.font.files)[0]);
+  }, [props.font.files, url]);
+
   return (
-    <Card
-      className={`${props.font.family.split(" ").join("")} card`}
-      key={props.index}
+    <MyCard
+      url={url}
+      family={props.font.family}
+      className="card"
       style={{
         fontFamily: `"${props.font.family}"`
       }}
@@ -15,11 +29,30 @@ const Card = props => {
         <button>+</button>
       </div>
       {props.typeValue.length === 0 ? "The quick brown fox" : props.typeValue}
-    </Card>
+    </MyCard>
   );
 };
 
 //* styled-component < 💅>
-// const Card = styled.div``;
+const MyCard = styled.div`
+  border-top: 1px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.4);
+  font-size: 40px;
+
+  /* apply the font's url */
+  @font-face {
+    font-family: ${props => props.family};
+    src: url(${props => props.url});
+  }
+
+  .fontTitle {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9pt;
+    margin-bottom: 20px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+`;
 
 export default Card;
