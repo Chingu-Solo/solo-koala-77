@@ -10,11 +10,11 @@ const FontsCard = props => {
     <Wrap className="cardWrap">
       {props.fontsObject.map((font, index) => {
         return (
-          <LazyLoad height={200} key={index}>
+          <LazyLoad height={120} once key={index}>
             <Card
               font={font}
               index={index}
-              earchValue={props.searchValue}
+              searchValue={props.searchValue}
               typeValue={props.typeValue}
               fontsObject={props.fontsObject}
             />
@@ -29,6 +29,8 @@ const FontsCard = props => {
 const Wrap = styled.main`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 80px;
 `;
 
 export default FontsCard;
