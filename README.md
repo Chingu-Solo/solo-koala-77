@@ -1,4 +1,5 @@
-# Favorite Fonts
+# Google Fonts API
+This project reproduces the Google Fonts website's look and most of its functionalities. 
 
 ### 🚧 Project under construction 🚧
 
