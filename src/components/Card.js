@@ -26,7 +26,6 @@ const Card = props => {
     >
       <div className="fontTitle">
         {props.font.family}
-        console.log('ciaooo');
         <button>+</button>
       </div>
       {props.typeValue.length === 0 ? "The quick brown fox" : props.typeValue}
