@@ -15,8 +15,9 @@ const FontsCard = props => {
       {props.searchValue.length === 0 ? (
         props.fontsObject.map((font, index) => {
           return (
-            <LazyLoad height={120} once key={index}>
+            <LazyLoad height={-100} once key={index}>
               <Card
+                key={index}
                 font={font}
                 index={index}
                 searchValue={props.searchValue}
@@ -29,7 +30,7 @@ const FontsCard = props => {
       ) : fontFilter ? (
         fontFilter.map((font, index) => {
           return (
-            <LazyLoad height={120} once key={index}>
+            <LazyLoad height={-100} once key={index}>
               <Card
                 font={font}
                 index={index}
