@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Card = props => {
+const Card = ({ ...props }) => {
   // <----------------------------
   // ALL THE STATES /
   const [url, setUrl] = useState(""); // 300 (Regular) url
@@ -20,7 +20,7 @@ const Card = props => {
     <MyCard
       url={url}
       family={props.font.family}
-      className="card"
+      className={`${props.font.family.split(" ").join("")} card`}
       style={{
         fontFamily: `"${props.font.family}"`,
         fontWeight: 100
