@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Card from "./Card";
 
 // === COMPONENT === \\
-const FontsCard = ({ ...props }) => {
+const FontsCard = props => {
   const fontRegex = new RegExp(props.searchValue, "i");
   const fontFilter = props.fontsObject.filter(font =>
     font.family.match(fontRegex)
@@ -27,7 +27,7 @@ const FontsCard = ({ ...props }) => {
             </LazyLoad>
           );
         })
-      ) : fontFilter.length ? (
+      ) : fontFilter ? (
         fontFilter.map((font, index) => {
           return (
             <LazyLoad height={-100} once key={index}>
