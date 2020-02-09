@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Card = props => {
+const Card = ({ ...props }) => {
   // <----------------------------
   // ALL THE STATES /
   const [url, setUrl] = useState(""); // 300 (Regular) url
@@ -10,18 +10,20 @@ const Card = props => {
 
   useEffect(() => {
     // extract Regular url if not available get the first one available
-    props.font.files[300]
-      ? setUrl(props.font.files[300])
-      : setUrl(Object.values(props.font.files)[0]);
-  }, [props.font.files, url]);
+    props.font.files["regular"]
+      ? setUrl(`'${props.font.files["regular"]}'`)
+      : setUrl(`'${Object.values(props.font.files)[0]}'`);
+    // setUrl(props.font.files);
+  }, [props.font]);
 
   return (
     <MyCard
       url={url}
       family={props.font.family}
-      className="card"
+      className={`${props.font.family.split(" ").join("")} card`}
       style={{
-        fontFamily: `"${props.font.family}"`
+        fontFamily: `"${props.font.family}"`,
+        fontWeight: 100
       }}
     >
       <div className="fontTitle">

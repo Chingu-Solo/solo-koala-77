@@ -12,14 +12,28 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import {
-  faListAlt,
+  faBars,
+  faTh,
   faRedoAlt,
   faSun,
   faMoon,
-  faFont
+  faFont,
+  faSearch,
+  faKeyboard
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, far, faListAlt, faRedoAlt, faSun, faMoon, faFont);
+library.add(
+  fab,
+  far,
+  faBars,
+  faTh,
+  faRedoAlt,
+  faSun,
+  faMoon,
+  faFont,
+  faSearch,
+  faKeyboard
+);
 
 // === COMPONENT === \\
 
@@ -29,6 +43,7 @@ const App = () => {
   const [fontsObject, setFontsObject] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [typeValue, setTypeValue] = useState("");
+  const [fontSize, setFontSize] = useState("40px");
   // ---------------------------->
 
   // <----------------------------
@@ -43,20 +58,19 @@ const App = () => {
         sort: "popularity"
       }
     });
-    console.log(response.data.items);
     setFontsObject(response.data.items); // update state with promise
   };
   // --------------------------->
 
   // <---------------------------
-  // Access the value of the Search Input /
-  const handleSetupChange = value => {
+  // Access the value of the Search Input (will be passed as prop)/
+  const handleSearchChange = value => {
     return setSearchValue(value); // Update searchValue state
   };
   // --------------------------->
 
   // <---------------------------
-  // Access the value of the Type Input /
+  // Access the value of the Type Input (will be passed as prop)/
   const handleTypeChange = value => {
     return setTypeValue(value); // Update typeValue state
   };
@@ -74,13 +88,14 @@ const App = () => {
       <Normalize />
       <Header />
       <Toolbar
-        onSearchValue={handleSetupChange} // pass it as props
-        onTypeValue={handleTypeChange}
+        onSearchValue={handleSearchChange} // handelSearchChange fn will be available in Toolbar
+        onTypeValue={handleTypeChange} // handelTypeChange fn will be available in Toolbar
       />
       <FontsCard
         searchValue={searchValue}
         typeValue={typeValue}
         fontsObject={fontsObject}
+        fontSize={fontSize}
       ></FontsCard>
     </Wrap>
   );
@@ -91,7 +106,7 @@ const App = () => {
 // Reset styling
 const Normalize = createGlobalStyle`
 *{
-font-family: "Roboto";
+
   box-sizing: border-box;
 }
 body{

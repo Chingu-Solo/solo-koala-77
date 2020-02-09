@@ -1,52 +1,29 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import GoogleFonts from "../../apis/GoogleFonts";
+import React, { useState } from "react";
 import styled from "styled-components";
-// import Search from "./Search";
+import Search from "./Search";
+import DarkMode from "./DarkMode";
+import FontSize from "./FontSize";
+import TextModifier from "./TextModifier";
+import ViewMode from "./ViewMode";
+import Reset from "./Reset";
 
 const Toolbar = ({ onSearchValue, onTypeValue }) => {
-  // get the value of the Search Input
-  const searchChange = e => {
-    return onSearchValue(e.target.value); // get the value and pass the value to the callback (parameter) so it's accessible by the parent
-  };
-  // get the value of the Type Input
-  const typeChange = e => {
-    return onTypeValue(e.target.value); // get the value pass the value to the callback (parameter) so it's accessible by the parent
-  };
+  const [isDarkMode] = useState(false);
+  const [isListMode] = useState(false);
 
   return (
     <Wrap>
-      <Search placeholder="Search font" onChange={searchChange} />
-      <TextModifier placeholder="Type something" onChange={typeChange} />
-      <FontSize>
-        <FontAwesomeIcon icon="font" />
-      </FontSize>
-      <span>
-        <BackgroundSwitch>
-          <FontAwesomeIcon icon="sun" />
-        </BackgroundSwitch>
-        <BackgroundSwitch>
-          <FontAwesomeIcon icon="moon" />
-        </BackgroundSwitch>
-      </span>
-      <ViewMode>
-        <FontAwesomeIcon icon="list-alt" />
-      </ViewMode>
-      <Reset>
-        <FontAwesomeIcon icon="redo-alt" />
-      </Reset>
+      <Search onSearchValue={onSearchValue} />
+      <TextModifier onTypeValue={onTypeValue} />
+      <FontSize />
+      <DarkMode isDarkMode={isDarkMode} />
+      <ViewMode isListMode={isListMode} />
+      <Reset />
     </Wrap>
   );
 };
 
 //* styled-component < 💅>
 const Wrap = styled.div``;
-
-const Search = styled.input``;
-const TextModifier = styled.input``;
-const FontSize = styled.button``;
-const BackgroundSwitch = styled.button``;
-const ViewMode = styled.button``;
-const Reset = styled.button``;
 
 export default Toolbar;
