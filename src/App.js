@@ -12,7 +12,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import {
-  faListAlt,
+  faBars,
+  faTh,
   faRedoAlt,
   faSun,
   faMoon,
@@ -24,7 +25,8 @@ import {
 library.add(
   fab,
   far,
-  faListAlt,
+  faBars,
+  faTh,
   faRedoAlt,
   faSun,
   faMoon,
