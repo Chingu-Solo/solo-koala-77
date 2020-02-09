@@ -44,6 +44,8 @@ const App = () => {
   const [searchValue, setSearchValue] = useState("");
   const [typeValue, setTypeValue] = useState("");
   const [fontSize, setFontSize] = useState("40px");
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isListMode, setIsListMode] = useState(false);
   // ---------------------------->
 
   // <----------------------------
@@ -77,6 +79,13 @@ const App = () => {
   // --------------------------->
 
   // <---------------------------
+  // get the value from Toolbar (e) and setState with it/
+  const onDarkClick = e => {
+    setIsDarkMode(e);
+  };
+  // --------------------------->
+
+  // <---------------------------
   // Fetch all fonts only when app first render /
   useEffect(() => {
     fetchFonts();
@@ -85,10 +94,13 @@ const App = () => {
 
   return (
     <Wrap>
-      <Normalize />
+      <Normalize isDarkMode={isDarkMode} isListMode={isListMode} />
       <Header />
       <Toolbar
         onSearchValue={handleSearchChange} // handelSearchChange fn will be available in Toolbar
+        onDarkClick={onDarkClick}
+        isDarkMode={isDarkMode}
+        isListMode={isListMode}
         onTypeValue={handleTypeChange} // handelTypeChange fn will be available in Toolbar
       />
       <FontsCard
@@ -106,12 +118,13 @@ const App = () => {
 // Reset styling
 const Normalize = createGlobalStyle`
 *{
-
   box-sizing: border-box;
+
 }
 body{
   margin: 0;
   padding: 60px;
+  background-color: ${props => (props.isDarkMode ? "#222" : "#fff")}
 }
 `;
 

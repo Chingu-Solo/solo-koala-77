@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const DarkMode = ({ ...props }) => {
-  const [isDarkMode, setIsDarkMode] = useState(props.isDarkMode);
-
+  // this gets called on MyDarkMode button click
   const onDarkClick = () => {
-    !isDarkMode ? setIsDarkMode(true) : setIsDarkMode(false);
+    // set the opposite of whatever is in isDarkMode state in App
+    return props.onDarkClick(!props.isDarkMode);
   };
-
   return (
     <Wrap>
       <MyDarkMode onClick={onDarkClick}>
-        {isDarkMode ? (
+        {props.isDarkMode ? (
           <FontAwesomeIcon icon="sun" />
         ) : (
           <FontAwesomeIcon icon="moon" />
