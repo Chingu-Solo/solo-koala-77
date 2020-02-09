@@ -5,8 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const TextModifier = ({ ...props }) => {
   // get the value of the Type Input
   const typeChange = e => {
-    console.log(e.target.value);
-    return props.onTypeValue(e.target.value); // get the value and pass the value to the callback (parameter) so it's accessible by the parent
+    return props.onTypeValue(e.target.value); // get the value and pass it as argument to onTypeValue()
   };
   return (
     <MyTextModifier className="TextModifier">
