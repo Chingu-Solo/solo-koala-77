@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TextModifier = ({ onTypeValue }) => {
+const TextModifier = ({ ...props }) => {
   // get the value of the Type Input
   const typeChange = e => {
-    return onTypeValue(e.target.value); // get the value pass the value to the callback (parameter) so it's accessible by the parent
+    console.log(e.target.value);
+    return props.onTypeValue(e.target.value); // get the value and pass the value to the callback (parameter) so it's accessible by the parent
   };
   return (
-    <MyTextModifier>
+    <MyTextModifier className="TextModifier">
       <FontAwesomeIcon icon="keyboard" />
       <input type="text" placeholder="Type something" onChange={typeChange} />
     </MyTextModifier>
@@ -16,6 +17,6 @@ const TextModifier = ({ onTypeValue }) => {
 };
 
 //* styled-component < 💅>
-const MyTextModifier = styled.div``;
+const MyTextModifier = styled.span``;
 
 export default TextModifier;
