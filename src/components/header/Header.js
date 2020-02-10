@@ -29,10 +29,15 @@ const Header = () => {
 //* styled-component < 💅>
 
 const HeaderWrap = styled.header`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 70px;
+  padding: 0 120px;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   width: 100%;
-
   border-bottom: 1px solid #000;
   border-color: rgba(0, 0, 0, 0.14);
 `;
