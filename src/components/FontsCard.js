@@ -15,7 +15,7 @@ const FontsCard = ({ ...props }) => {
       {props.searchValue.length === 0 ? (
         props.fontsObject.map((font, index) => {
           return (
-            <LazyLoad height={-100} once key={index}>
+            <LazyLoad height={150} once key={index}>
               <Card
                 key={index}
                 font={font}
@@ -30,7 +30,7 @@ const FontsCard = ({ ...props }) => {
       ) : fontFilter.length ? (
         fontFilter.map((font, index) => {
           return (
-            <LazyLoad height={-100} once key={index}>
+            <LazyLoad height={150} once key={index}>
               <Card
                 font={font}
                 index={index}
@@ -49,11 +49,6 @@ const FontsCard = ({ ...props }) => {
 };
 
 //* styled-component < 💅>
-const Wrap = styled.main`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 50px;
-  grid-row-gap: 80px;
-`;
+const Wrap = styled.main``;
 
 export default FontsCard;
