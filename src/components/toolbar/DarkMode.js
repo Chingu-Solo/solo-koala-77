@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "./Button";
 
 const DarkMode = ({ ...props }) => {
   // this gets called on MyDarkMode button click
@@ -8,21 +8,18 @@ const DarkMode = ({ ...props }) => {
     // set the opposite of whatever is in isDarkMode state in App
     return props.onDarkClick(!props.isDarkMode);
   };
+
   return (
-    <Wrap>
-      <MyDarkMode onClick={onDarkClick}>
-        {props.isDarkMode ? (
-          <FontAwesomeIcon icon="sun" />
-        ) : (
-          <FontAwesomeIcon icon="moon" />
-        )}
-      </MyDarkMode>
-    </Wrap>
+    <Button onClick={onDarkClick}>
+      {props.isDarkMode ? (
+        <FontAwesomeIcon icon="sun" />
+      ) : (
+        <FontAwesomeIcon icon="moon" />
+      )}
+    </Button>
   );
 };
 
 //* styled-component < 💅>
-const Wrap = styled.span``;
-const MyDarkMode = styled.button``;
 
 export default DarkMode;
