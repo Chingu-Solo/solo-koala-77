@@ -18,22 +18,10 @@ import {
   faSun,
   faMoon,
   faFont,
-  faSearch,
-  faKeyboard
+  faSearch
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(
-  fab,
-  far,
-  faBars,
-  faTh,
-  faRedoAlt,
-  faSun,
-  faMoon,
-  faFont,
-  faSearch,
-  faKeyboard
-);
+library.add(fab, far, faBars, faTh, faRedoAlt, faSun, faMoon, faFont, faSearch);
 
 // === COMPONENT === \\
 
@@ -65,27 +53,6 @@ const App = () => {
   // --------------------------->
 
   // <---------------------------
-  // Access the value of the Search Input (will be passed as prop)/
-  const handleSearchChange = value => {
-    return setSearchValue(value); // Update searchValue state
-  };
-  // --------------------------->
-
-  // <---------------------------
-  // Access the value of the Type Input (will be passed as prop)/
-  const handleTypeChange = value => {
-    return setTypeValue(value); // Update typeValue state
-  };
-  // --------------------------->
-
-  // <---------------------------
-  // get the value from Toolbar (e) and setState with it/
-  const onDarkClick = e => {
-    setIsDarkMode(e);
-  };
-  // --------------------------->
-
-  // <---------------------------
   // Fetch all fonts only when app first render /
   useEffect(() => {
     fetchFonts();
@@ -93,17 +60,29 @@ const App = () => {
   // -------------------------->
 
   return (
-    <Wrap>
+    <Wrap isListMode={isListMode}>
       <Normalize isDarkMode={isDarkMode} isListMode={isListMode} />
       <Header />
       <Toolbar
-        onSearchValue={handleSearchChange} // handelSearchChange fn will be available in Toolbar
-        onDarkClick={onDarkClick}
+        // get the search value and update search State
+        onSearchValue={value => {
+          return setSearchValue(value);
+        }}
+        // get the typed value and update type state
+        onTypeValue={value => {
+          return setTypeValue(value);
+        }}
+        onDarkClick={e => {
+          setIsDarkMode(e);
+        }}
         isDarkMode={isDarkMode}
+        onViewClick={e => {
+          setIsListMode(e);
+        }}
         isListMode={isListMode}
-        onTypeValue={handleTypeChange} // handelTypeChange fn will be available in Toolbar
       />
       <FontsCard
+        isListMode={isListMode}
         searchValue={searchValue}
         typeValue={typeValue}
         fontsObject={fontsObject}
@@ -123,12 +102,22 @@ const Normalize = createGlobalStyle`
 }
 body{
   margin: 0;
-  padding: 60px;
+  padding: 70px 120px;
   background-color: ${props => (props.isDarkMode ? "#222" : "#fff")}
 }
 `;
 
 const Wrap = styled.div`
   box-sizing: border-box;
+
+  main {
+    display: ${props => (props.isListMode ? "flex" : "grid")};
+    grid-template-columns: ${props =>
+      props.isListMode ? "0" : "repeat(4, 1fr)"};
+    grid-column-gap: ${props => (props.isListMode ? "0" : "50px")};
+    grid-row-gap: ${props => (props.isListMode ? "0" : "80px")};
+
+    flex-direction: ${props => (props.isListMode ? "column" : "none")};
+  }
 `;
 export default App;
