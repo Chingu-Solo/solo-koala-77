@@ -12,19 +12,46 @@ const Toolbar = ({ ...props }) => {
   const onDarkClick = e => {
     return props.onDarkClick(e);
   };
+  // get the value coming from ViewModeMode (e) and pass it to App
+  const onViewClick = e => {
+    return props.onViewClick(e);
+  };
   return (
     <Wrap>
-      <Search onSearchValue={props.onSearchValue} />
-      <TextModifier onTypeValue={props.onTypeValue} />
-      <FontSize />
-      <DarkMode onDarkClick={onDarkClick} isDarkMode={props.isDarkMode} />
-      <ViewMode isListMode={props.isListMode} />
-      <Reset />
+      <span className="inputs">
+        <Search onSearchValue={props.onSearchValue} />
+        <TextModifier onTypeValue={props.onTypeValue} />
+      </span>
+      <span className="buttons">
+        <FontSize />
+        <DarkMode onDarkClick={onDarkClick} isDarkMode={props.isDarkMode} />
+        <ViewMode onViewClick={onViewClick} isListMode={props.isListMode} />
+        <Reset />
+      </span>
     </Wrap>
   );
 };
 
 //* styled-component < 💅>
-const Wrap = styled.div``;
+const Wrap = styled.div`
+  margin: 30px 0;
+  border: 0.5px black solid;
+  border-radius: 50px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+
+  .inputs {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 60%;
+  }
+
+  .button {
+  }
+`;
 
 export default Toolbar;
