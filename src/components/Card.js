@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Card = ({ ...props }) => {
   // <----------------------------
@@ -15,7 +16,6 @@ const Card = ({ ...props }) => {
       : setUrl(`'${Object.values(props.font.files)[0]}'`);
     // setUrl(props.font.files);
   }, [props.font]);
-
   return (
     <MyCard
       url={url}
@@ -25,10 +25,13 @@ const Card = ({ ...props }) => {
         fontFamily: `"${props.font.family}"`,
         fontWeight: 100
       }}
+      isDarkMode={props.isDarkMode}
     >
       <div className="fontTitle">
         {props.font.family}
-        <button>+</button>
+        <button>
+          <FontAwesomeIcon icon="plus" />
+        </button>
       </div>
       {props.typeValue.length === 0 ? "The quick brown fox" : props.typeValue}
     </MyCard>
@@ -50,10 +53,22 @@ const MyCard = styled.div`
   .fontTitle {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 9pt;
     margin-bottom: 20px;
-    margin-top: 12px;
-    margin-bottom: 4px;
+
+    button {
+      background: rgb(255, 82, 82);
+      border-color: rgb(255, 82, 82);
+      border-radius: 61px;
+      height: 25px;
+      width: 25px;
+      border: none;
+
+      svg {
+        color: ${props => (props.isDarkMode ? "#222" : "#fff")};
+      }
+    }
   }
 `;
 
