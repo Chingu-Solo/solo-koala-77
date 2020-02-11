@@ -27,6 +27,7 @@ const MySearchInput = styled.span`
     font-size: 20px;
     margin: 0 13px 0 0;
     vertical-align: middle;
+    color: #707070;
   }
   input {
     height: 35px;
