@@ -1,16 +1,15 @@
 import React from "react";
-import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "./Button";
 
 const Reset = () => {
   return (
-    <MyReset>
+    <Button>
       <FontAwesomeIcon icon="redo-alt" />
-    </MyReset>
+    </Button>
   );
 };
 
 //* styled-component < 💅>
-const MyReset = styled.button``;
 
 export default Reset;

@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "./Button";
 
 const ViewMode = ({ ...props }) => {
-  const [isListMode, setIsListMode] = useState(props.isListMode);
-
   const onViewClick = () => {
-    !isListMode ? setIsListMode(true) : setIsListMode(false);
+    return props.onViewClick(!props.isListMode);
   };
+
   return (
-    <MyViewMode onClick={onViewClick}>
-      {isListMode ? (
+    <Button onClick={onViewClick}>
+      {!props.isListMode ? (
         <FontAwesomeIcon icon="bars" />
       ) : (
         <FontAwesomeIcon icon="th" />
       )}
-    </MyViewMode>
+    </Button>
   );
 };
 
 //* styled-component < 💅>
-const MyViewMode = styled.button``;
 
 export default ViewMode;

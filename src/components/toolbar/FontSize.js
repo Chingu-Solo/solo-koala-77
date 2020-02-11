@@ -1,16 +1,15 @@
 import React from "react";
-import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "./Button";
 
 const FontSize = () => {
   return (
-    <MyFontSize>
+    <Button>
       <FontAwesomeIcon icon="font" />
-    </MyFontSize>
+    </Button>
   );
 };
 
 //* styled-component < 💅>
-const MyFontSize = styled.button``;
 
 export default FontSize;

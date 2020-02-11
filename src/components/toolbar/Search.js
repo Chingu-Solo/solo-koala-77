@@ -16,6 +16,24 @@ const Search = ({ ...props }) => {
 };
 
 //* styled-component < 💅>
-const MySearchInput = styled.span``;
+const MySearchInput = styled.span`
+  /* width: 23%; */
+  height: 100%;
+  border-right: 0.3px solid #aaa;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  svg {
+    font-size: 20px;
+    margin: 0 13px 0 0;
+    vertical-align: middle;
+    color: #707070;
+  }
+  input {
+    height: 35px;
+    border: none;
+    font-size: 15px;
+  }
+`;
 
 export default Search;
