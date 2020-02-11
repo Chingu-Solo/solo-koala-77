@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components"; // used to normalize browser style
+
 // My Components
 import googleFonts from "./api/googleFonts";
 import Header from "./components/header/Header";
@@ -18,17 +20,28 @@ import {
   faSun,
   faMoon,
   faFont,
-  faSearch
+  faSearch,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, far, faBars, faTh, faRedoAlt, faSun, faMoon, faFont, faSearch);
-
+library.add(
+  fab,
+  far,
+  faBars,
+  faTh,
+  faRedoAlt,
+  faSun,
+  faMoon,
+  faFont,
+  faSearch,
+  faPlus
+);
 // === COMPONENT === \\
 
 const App = () => {
   // <----------------------------
   // ALL THE STATES /
-  const [fontsObject, setFontsObject] = useState([]);
+  const [fonts, setFonts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [typeValue, setTypeValue] = useState("");
   const [fontSize, setFontSize] = useState("40px");
@@ -48,7 +61,7 @@ const App = () => {
         sort: "popularity"
       }
     });
-    setFontsObject(response.data.items); // update state with promise
+    setFonts(response.data.items); // update state with promise
   };
   // --------------------------->
 
@@ -58,6 +71,10 @@ const App = () => {
     fetchFonts();
   }, []);
   // -------------------------->
+
+  const filterFonts = fonts.filter(font => {
+    return font.family.toLowerCase().includes(searchValue.toLowerCase());
+  });
 
   return (
     <Wrap isListMode={isListMode}>
@@ -82,11 +99,13 @@ const App = () => {
         isListMode={isListMode}
       />
       <FontsCard
+        filterFonts={filterFonts}
         isListMode={isListMode}
         searchValue={searchValue}
         typeValue={typeValue}
-        fontsObject={fontsObject}
+        fonts={fonts}
         fontSize={fontSize}
+        isDarkMode={isDarkMode}
       ></FontsCard>
     </Wrap>
   );
@@ -98,7 +117,7 @@ const App = () => {
 const Normalize = createGlobalStyle`
 *{
   box-sizing: border-box;
-
+  font-family: ubuntu, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 body{
   margin: 0;
@@ -111,13 +130,6 @@ const Wrap = styled.div`
   box-sizing: border-box;
 
   main {
-    display: ${props => (props.isListMode ? "flex" : "grid")};
-    grid-template-columns: ${props =>
-      props.isListMode ? "0" : "repeat(4, 1fr)"};
-    grid-column-gap: ${props => (props.isListMode ? "0" : "50px")};
-    grid-row-gap: ${props => (props.isListMode ? "0" : "80px")};
-
-    flex-direction: ${props => (props.isListMode ? "column" : "none")};
   }
 `;
 export default App;
