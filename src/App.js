@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components"; // used to normalize browser style
@@ -19,23 +20,11 @@ import {
   faRedoAlt,
   faSun,
   faMoon,
-  faFont,
   faSearch,
   faPlus
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(
-  fab,
-  far,
-  faBars,
-  faTh,
-  faRedoAlt,
-  faSun,
-  faMoon,
-  faFont,
-  faSearch,
-  faPlus
-);
+library.add(fab, far, faBars, faTh, faRedoAlt, faSun, faMoon, faSearch, faPlus);
 // === COMPONENT === \\
 
 const App = () => {
@@ -44,7 +33,7 @@ const App = () => {
   const [fonts, setFonts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [typeValue, setTypeValue] = useState("");
-  const [fontSize, setFontSize] = useState("40px");
+  const [fontSize, setFontSize] = useState(40);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isListMode, setIsListMode] = useState(false);
   // ---------------------------->
@@ -82,21 +71,15 @@ const App = () => {
       <Header />
       <Toolbar
         // get the search value and update search State
-        onSearchValue={value => {
-          return setSearchValue(value);
-        }}
+        onSearchValue={e => setSearchValue(e)}
         // get the typed value and update type state
-        onTypeValue={value => {
-          return setTypeValue(value);
-        }}
-        onDarkClick={e => {
-          setIsDarkMode(e);
-        }}
+        onTypeValue={e => setTypeValue(e)}
+        onDarkClick={e => setIsDarkMode(e)}
         isDarkMode={isDarkMode}
-        onViewClick={e => {
-          setIsListMode(e);
-        }}
+        onViewClick={e => setIsListMode(e)}
         isListMode={isListMode}
+        onFontSize={e => setFontSize(e)}
+        fontSize={fontSize}
       />
       <FontsCard
         filterFonts={filterFonts}
