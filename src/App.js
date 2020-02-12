@@ -46,7 +46,7 @@ const App = () => {
   const fetchFonts = async font => {
     const response = await googleFonts.get("/webfonts", {
       params: {
-        key: "AIzaSyBnR7OcpIdnPjygLbpBIWZIbXX5sdKSDLM",
+        key: process.env.REACT_APP_GOOGLE_FONTS_API,
         sort: "popularity"
       }
     });
