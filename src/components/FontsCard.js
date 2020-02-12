@@ -3,52 +3,47 @@ import LazyLoad from "react-lazyload";
 
 import styled from "styled-components";
 import Card from "./Card";
+import NoFonts from "./NoFonts";
 
 // === COMPONENT === \\
 const FontsCard = ({ ...props }) => {
-  const fontRegex = new RegExp(props.searchValue, "i");
-  const fontFilter = props.fontsObject.filter(font =>
-    font.family.match(fontRegex)
-  );
+  const mapFonts = props.filterFonts.map((font, index) => {
+    return (
+      <LazyLoad height={150} once key={index}>
+        <Card
+          font={font}
+          key={font.family.split(" ").join("")}
+          searchValue={props.searchValue}
+          typeValue={props.typeValue}
+          isDarkMode={props.isDarkMode}
+          fontSize={props.fontSize}
+        />
+      </LazyLoad>
+    );
+  });
+
   return (
-    <Wrap className="cardWrap">
-      {props.searchValue.length === 0 ? (
-        props.fontsObject.map((font, index) => {
-          return (
-            <LazyLoad height={150} once key={index}>
-              <Card
-                key={index}
-                font={font}
-                index={index}
-                searchValue={props.searchValue}
-                typeValue={props.typeValue}
-                fontsObject={props.fontsObject}
-              />
-            </LazyLoad>
-          );
-        })
-      ) : fontFilter.length ? (
-        fontFilter.map((font, index) => {
-          return (
-            <LazyLoad height={150} once key={index}>
-              <Card
-                font={font}
-                index={index}
-                searchValue={props.searchValue}
-                typeValue={props.typeValue}
-                fontsObject={props.fontsObject}
-              />
-            </LazyLoad>
-          );
-        })
+    <Wrap className="cardWrap" isListMode={props.isListMode}>
+      {props.searchValue === "" ? (
+        mapFonts
+      ) : props.filterFonts.length === 0 ? (
+        <NoFonts />
       ) : (
-        <div>Not Found</div>
+        mapFonts
       )}
     </Wrap>
   );
 };
 
 //* styled-component < 💅>
-const Wrap = styled.main``;
+const Wrap = styled.main`
+  display: ${props => (props.isListMode ? "flex" : "grid")};
+  grid-template-columns: ${props =>
+    props.isListMode ? "0" : "repeat(3, 1fr)"};
+  grid-column-gap: ${props => (props.isListMode ? "0" : "50px")};
+  grid-row-gap: 80px; /*${props => (props.isListMode ? "0" : "80px")};*/
+
+  flex-direction: ${props => (props.isListMode ? "column" : "none")};
+`;
 
 export default FontsCard;
