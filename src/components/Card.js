@@ -18,9 +18,10 @@ const Card = ({ ...props }) => {
 
   return (
     <MyCard
+      fontSize={props.fontSize}
       url={url}
       family={props.font.family}
-      className={`${props.font.family.split(" ").join("")} card`}
+      className={`${props.font.family.split(" ").join("")} fontCard`}
       style={{
         fontFamily: `"${props.font.family}"`,
         fontWeight: 100
@@ -39,7 +40,7 @@ const Card = ({ ...props }) => {
 const MyCard = styled.div`
   border-top: 1px solid transparent;
   border-top-color: rgba(0, 0, 0, 0.4);
-  font-size: 40px;
+  font-size: ${props => props.fontSize}px;
 
   /* apply the font's url */
   @font-face {
