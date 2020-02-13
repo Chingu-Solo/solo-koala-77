@@ -9,7 +9,7 @@ import NoFonts from "./NoFonts";
 const FontsCard = ({ ...props }) => {
   const mapFonts = props.filterFonts.map((font, index) => {
     return (
-      <LazyLoad height={150} once key={index}>
+      <LazyLoad height={100} once key={index}>
         <Card
           font={font}
           key={font.family.split(" ").join("")}
