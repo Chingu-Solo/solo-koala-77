@@ -68,7 +68,7 @@ const App = () => {
   return (
     <Wrap isListMode={isListMode}>
       <Normalize isDarkMode={isDarkMode} isListMode={isListMode} />
-      <Header />
+      <Header isDarkMode={isDarkMode} />
       <Toolbar
         // get the search value and update search State
         onSearchValue={e => setSearchValue(e)}

@@ -8,7 +8,7 @@ const ViewMode = ({ ...props }) => {
   };
 
   return (
-    <Button onClick={onViewClick}>
+    <Button onClick={onViewClick} isDarkMode={props.isDarkMode}>
       {!props.isListMode ? (
         <FontAwesomeIcon icon="bars" />
       ) : (

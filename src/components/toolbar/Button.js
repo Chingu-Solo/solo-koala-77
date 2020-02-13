@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ children, onClick }) => {
-  return <MyButton onClick={onClick}>{children}</MyButton>;
+const Button = ({ ...props }) => {
+  return (
+    <MyButton onClick={props.onClick} isDarkMode={props.isDarkMode}>
+      {props.children}
+    </MyButton>
+  );
 };
 
 //* styled-component < 💅>
@@ -11,7 +15,7 @@ const MyButton = styled.button`
   background: none;
   margin: 0 10px;
   font-size: 20px;
-  color: #707070;
+  color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
 `;
 
 export default Button;

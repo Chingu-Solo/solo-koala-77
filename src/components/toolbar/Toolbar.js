@@ -18,16 +18,30 @@ const Toolbar = ({ ...props }) => {
   };
 
   return (
-    <Wrap>
+    <Wrap isDarkMode={props.isDarkMode}>
       <span className="inputs">
-        <Search onSearchValue={props.onSearchValue} />
-        <TextModifier onTypeValue={props.onTypeValue} />
+        <Search
+          onSearchValue={props.onSearchValue}
+          isDarkMode={props.isDarkMode}
+        />
+        <TextModifier
+          onTypeValue={props.onTypeValue}
+          isDarkMode={props.isDarkMode}
+        />
       </span>
       <span className="buttons">
-        <SizeSlider fontSize={props.fontSize} onFontSize={props.onFontSize} />
+        <SizeSlider
+          fontSize={props.fontSize}
+          onFontSize={props.onFontSize}
+          isDarkMode={props.isDarkMode}
+        />
         <DarkMode onDarkClick={onDarkClick} isDarkMode={props.isDarkMode} />
-        <ViewMode onViewClick={onViewClick} isListMode={props.isListMode} />
-        <Reset />
+        <ViewMode
+          onViewClick={onViewClick}
+          isListMode={props.isListMode}
+          isDarkMode={props.isDarkMode}
+        />
+        <Reset isDarkMode={props.isDarkMode} />
       </span>
     </Wrap>
   );
@@ -36,7 +50,7 @@ const Toolbar = ({ ...props }) => {
 //* styled-component < 💅>
 const Wrap = styled.div`
   margin: 30px 0;
-  border: 0.5px black solid;
+  border: 0.5px ${props => (props.isDarkMode ? "#fff" : "#606060")} solid;
   border-radius: 50px;
   height: 56px;
   display: flex;

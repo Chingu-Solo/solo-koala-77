@@ -10,7 +10,7 @@ const SizeDropdown = ({ ...props }) => {
   const fontsArray = [8, 12, 14, 20, 24, 32, 40, 64, 96, 120];
 
   return (
-    <Wrap>
+    <Wrap isDarkMode={props.isDarkMode}>
       <Dropdown>
         <DropdownToggle className="toggle">{`${props.fontSize}px`}</DropdownToggle>
         <DropdownMenu className="menu">
@@ -36,7 +36,7 @@ const Wrap = styled.div`
   }
   .toggle {
     &.btn-primary {
-      color: #707070;
+      color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
       background: none;
       border: none;
 

@@ -10,7 +10,7 @@ const DarkMode = ({ ...props }) => {
   };
 
   return (
-    <Button onClick={onDarkClick}>
+    <Button onClick={onDarkClick} isDarkMode={props.isDarkMode}>
       {props.isDarkMode ? (
         <FontAwesomeIcon icon="sun" />
       ) : (

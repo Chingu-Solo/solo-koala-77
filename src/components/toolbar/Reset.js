@@ -2,9 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./Button";
 
-const Reset = () => {
+const Reset = ({ ...props }) => {
   return (
-    <Button>
+    <Button isDarkMode={props.isDarkMode}>
       <FontAwesomeIcon icon="redo-alt" />
     </Button>
   );

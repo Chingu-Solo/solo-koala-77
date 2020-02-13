@@ -7,7 +7,7 @@ const TextModifier = ({ ...props }) => {
     return props.onTypeValue(e.target.value); // get the value and pass it as argument to onTypeValue()
   };
   return (
-    <MyTextModifier className="TextModifier">
+    <MyTextModifier className="TextModifier" isDarkMode={props.isDarkMode}>
       <input type="text" placeholder="Type something" onChange={typeChange} />
     </MyTextModifier>
   );
@@ -19,15 +19,22 @@ const MyTextModifier = styled.span`
   margin-left: 10px;
   align-items: center;
   display: flex;
-  border-right: 0.3px solid #aaa;
+  border-right: 0.3px solid ${props => (props.isDarkMode ? "#fff" : "#606060")};
   width: 100%;
 
   input {
+    background: none;
     height: 35px;
     border: none;
     font-size: 15px;
-    border-bottom: 0.3px solid #aaa;
+    border-bottom: 0.3px solid
+      ${props => (props.isDarkMode ? "#fff" : "#606060")};
     font-weight: 500;
+    color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
+    ::placeholder {
+      color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
+      opacity: ${props => (props.isDarkMode ? 1 : 0.7)};
+    }
   }
 `;
 

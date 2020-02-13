@@ -1,13 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Logo = () => {
+const Logo = ({ ...props }) => {
   return (
-    <LogoWrap className="logo-wrap">
-      <img
-        src={require("../../img/googlelogo_dark_color.png")}
-        alt="Google Logo"
-      />
+    <LogoWrap className="logo-wrap" isDarkMode={props.isDarkMode}>
+      {props.isDarkMode ? (
+        <img
+          src={require("../../img/googlelogo_light.png")}
+          alt="Google Logo"
+        />
+      ) : (
+        <img src={require("../../img/googlelogo_dark.png")} alt="Google Logo" />
+      )}
       <span>Fonts</span>
     </LogoWrap>
   );
@@ -22,11 +26,12 @@ const LogoWrap = styled.div`
   img {
     width: 74px;
     height: 24px;
-    opacity: 0.6;
+    opacity: ${props => (props.isDarkMode ? 1 : 0.6)};
+    transform: translateY(2px);
   }
 
   span {
-    color: rgba(0, 0, 0, 0.6);
+    color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
     font-size: 22.1px;
   }
 `;
