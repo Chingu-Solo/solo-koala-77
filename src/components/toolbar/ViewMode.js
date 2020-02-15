@@ -4,6 +4,7 @@ import Button from "./Button";
 
 const ViewMode = ({ ...props }) => {
   const onViewClick = () => {
+    props.isListMode ? props.onFontSize(40) : props.onFontSize(64);
     return props.onViewClick(!props.isListMode);
   };
 

@@ -14,6 +14,7 @@ const Toolbar = ({ ...props }) => {
   };
   // get the value coming from ViewModeMode (e) and pass it to App
   const onViewClick = e => {
+    console.log(e);
     return props.onViewClick(e);
   };
 
@@ -37,6 +38,7 @@ const Toolbar = ({ ...props }) => {
         />
         <DarkMode onDarkClick={onDarkClick} isDarkMode={props.isDarkMode} />
         <ViewMode
+          onFontSize={props.onFontSize}
           onViewClick={onViewClick}
           isListMode={props.isListMode}
           isDarkMode={props.isDarkMode}
@@ -62,7 +64,7 @@ const Wrap = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 50%;
   }
 
   .buttons {

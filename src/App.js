@@ -74,12 +74,12 @@ const App = () => {
         onSearchValue={e => setSearchValue(e)}
         // get the typed value and update type state
         onTypeValue={e => setTypeValue(e)}
-        onDarkClick={e => setIsDarkMode(e)}
         isDarkMode={isDarkMode}
-        onViewClick={e => setIsListMode(e)}
+        onDarkClick={e => setIsDarkMode(e)}
         isListMode={isListMode}
-        onFontSize={e => setFontSize(e)}
+        onViewClick={e => setIsListMode(e)}
         fontSize={fontSize}
+        onFontSize={e => setFontSize(e)}
       />
       <FontsCard
         filterFonts={filterFonts}
