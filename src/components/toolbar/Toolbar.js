@@ -5,17 +5,17 @@ import DarkMode from "./DarkMode";
 import SizeSlider from "./SizeSlider";
 import TextModifier from "./TextModifier";
 import ViewMode from "./ViewMode";
+
 import Reset from "./Reset";
 
 const Toolbar = ({ ...props }) => {
-  // get the value coming from DarkMode (e) and pass it to App
-  const onDarkClick = e => {
-    return props.onDarkClick(e);
+  // UPDATE THE DARK MODE (light/dark)
+  const onDarkMode = e => {
+    return props.onDarkMode(e);
   };
-  // get the value coming from ViewModeMode (e) and pass it to App
-  const onViewClick = e => {
-    console.log(e);
-    return props.onViewClick(e);
+  // UPDATE THE VIEW MODE (List/Grid)
+  const onViewMode = e => {
+    return props.onViewMode(e);
   };
 
   return (
@@ -36,14 +36,21 @@ const Toolbar = ({ ...props }) => {
           onFontSize={props.onFontSize}
           isDarkMode={props.isDarkMode}
         />
-        <DarkMode onDarkClick={onDarkClick} isDarkMode={props.isDarkMode} />
+        <DarkMode onDarkMode={onDarkMode} isDarkMode={props.isDarkMode} />
         <ViewMode
           onFontSize={props.onFontSize}
-          onViewClick={onViewClick}
+          onViewMode={onViewMode}
           isListMode={props.isListMode}
           isDarkMode={props.isDarkMode}
         />
-        <Reset isDarkMode={props.isDarkMode} />
+        <Reset
+          isDarkMode={props.isDarkMode}
+          onDarkMode={props.onDarkMode}
+          onFontSize={props.onFontSize}
+          onViewMode={props.onViewMode}
+          onSearchValue={props.onSearchValue}
+          onTypeValue={props.onTypeValue}
+        />
       </span>
     </Wrap>
   );
@@ -65,6 +72,7 @@ const Wrap = styled.div`
     display: flex;
     align-items: center;
     width: 50%;
+    flex: 1;
   }
 
   .buttons {

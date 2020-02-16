@@ -3,38 +3,47 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Search = ({ ...props }) => {
-  // get the value of the Search Input
-  const searchChange = e => {
-    return props.onSearchValue(e.target.value); // get the value and pass the value to the callback (parameter) so it's accessible by the parent
+  // UPDATE THE SEARCH INPUT VALUE
+  const onSearchChange = e => {
+    return props.onSearchValue(e.target.value);
   };
+
   return (
     <MySearchInput isDarkMode={props.isDarkMode}>
       <FontAwesomeIcon icon="search" />
-      <input type="text" placeholder="Search Font" onChange={searchChange} />
+      <input
+        type="text"
+        className="input-search"
+        placeholder="Search Font"
+        onChange={onSearchChange}
+      />
     </MySearchInput>
   );
 };
 
 //* styled-component < 💅>
 const MySearchInput = styled.span`
-  /* width: 23%; */
   height: 100%;
-  border-right: 1px solid ${props => (props.isDarkMode ? "#fff" : "#606060")};
-  display: flex;
   align-items: center;
+  display: flex;
+  border-right: 0.3px solid ${props => (props.isDarkMode ? "#fff" : "#606060")};
   width: 100%;
-  font-weight: 500;
+  padding: 0 10px;
   svg {
     font-size: 20px;
     margin: 0 13px 0 0;
     vertical-align: middle;
     color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
   }
+
   input {
     background: none;
     height: 35px;
+    width: 75%;
     border: none;
     font-size: 15px;
+
+    font-weight: 500;
     color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
     ::placeholder {
       color: ${props => (props.isDarkMode ? "#fff" : "#606060")};

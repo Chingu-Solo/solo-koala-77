@@ -2,13 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 const TextModifier = ({ ...props }) => {
-  // get the value of the Type Input
-  const typeChange = e => {
-    return props.onTypeValue(e.target.value); // get the value and pass it as argument to onTypeValue()
+  // UPDATE THE TEXT MODIFIER INPUT VALUE
+  const onTypeChange = e => {
+    return props.onTypeValue(e.target.value);
   };
   return (
-    <MyTextModifier className="TextModifier" isDarkMode={props.isDarkMode}>
-      <input type="text" placeholder="Type something" onChange={typeChange} />
+    <MyTextModifier isDarkMode={props.isDarkMode}>
+      <input
+        type="text"
+        placeholder="Type something"
+        onChange={onTypeChange}
+        className="input-modifier"
+      />
     </MyTextModifier>
   );
 };
@@ -16,15 +21,20 @@ const TextModifier = ({ ...props }) => {
 //* styled-component < 💅>
 const MyTextModifier = styled.span`
   height: 100%;
-  margin-left: 10px;
   align-items: center;
   display: flex;
   border-right: 0.3px solid ${props => (props.isDarkMode ? "#fff" : "#606060")};
   width: 100%;
+  padding: 0 10px;
+
+  @media (max-width: 660px) {
+    display: none;
+  }
 
   input {
     background: none;
     height: 35px;
+    width: 100%;
     border: none;
     font-size: 15px;
     border-bottom: 0.3px solid

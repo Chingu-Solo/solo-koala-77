@@ -103,13 +103,15 @@ const App = () => {
       />
       <Toolbar
         // get the search value and update search State
+        searchValue={searchValue}
         onSearchValue={e => setSearchValue(e)}
         // get the typed value and update type state
+        typeValue={typeValue}
         onTypeValue={e => setTypeValue(e)}
         isDarkMode={isDarkMode}
-        onDarkClick={e => setIsDarkMode(e)}
+        onDarkMode={e => setIsDarkMode(e)}
         isListMode={isListMode}
-        onViewClick={e => setIsListMode(e)}
+        onViewMode={e => setIsListMode(e)}
         fontSize={fontSize}
         onFontSize={e => setFontSize(e)}
       />
@@ -136,8 +138,14 @@ const Normalize = createGlobalStyle`
 body{
   font-family: ubuntu, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
-  padding: 5vh 10vw;
-  background-color: ${props => (props.isDarkMode ? "#222" : "#fff")}
+  padding: 64px 60px 48px;
+  background-color: ${props => (props.isDarkMode ? "#222" : "#fff")};
+  word-wrap: anywhere;
+
+  @media (max-width: 480px ){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 `;
 
