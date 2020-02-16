@@ -132,11 +132,11 @@ const App = () => {
 const Normalize = createGlobalStyle`
 *{
   box-sizing: border-box;
-  font-family: ubuntu, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 body{
+  font-family: ubuntu, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
-  padding: 70px 120px;
+  padding: 5vh 10vw;
   background-color: ${props => (props.isDarkMode ? "#222" : "#fff")}
 }
 `;
