@@ -19,11 +19,15 @@ const Wrap = styled.div`
   margin: auto;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
   .ascii {
     font-size: 200px;
     letter-spacing: 10px;
     color: #bbb;
     margin: 50px;
+    @media (max-width: 1250px) {
+      font-size: 30px;
+    }
   }
   .test {
     color: #bbb;

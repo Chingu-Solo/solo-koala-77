@@ -14,7 +14,11 @@ const SizeSlider = ({ ...props }) => {
 
   return (
     <Wrap>
-      <Dropdown fontSize={props.fontSize} handleDropdown={handleDropdown} />
+      <Dropdown
+        fontSize={props.fontSize}
+        handleDropdown={handleDropdown}
+        isDarkMode={props.isDarkMode}
+      />
       <input
         type="range"
         min={8}
@@ -29,8 +33,11 @@ const SizeSlider = ({ ...props }) => {
 //* styled-component < 💅>
 const Wrap = styled.div`
   display: flex;
+
   input {
-    width: 60%;
+    @media (max-width: 1250px) {
+      display: none;
+    }
   }
 `;
 

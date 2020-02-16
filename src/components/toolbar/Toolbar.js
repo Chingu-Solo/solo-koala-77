@@ -5,29 +5,52 @@ import DarkMode from "./DarkMode";
 import SizeSlider from "./SizeSlider";
 import TextModifier from "./TextModifier";
 import ViewMode from "./ViewMode";
+
 import Reset from "./Reset";
 
 const Toolbar = ({ ...props }) => {
-  // get the value coming from DarkMode (e) and pass it to App
-  const onDarkClick = e => {
-    return props.onDarkClick(e);
+  // UPDATE THE DARK MODE (light/dark)
+  const onDarkMode = e => {
+    return props.onDarkMode(e);
   };
-  // get the value coming from ViewModeMode (e) and pass it to App
-  const onViewClick = e => {
-    return props.onViewClick(e);
+  // UPDATE THE VIEW MODE (List/Grid)
+  const onViewMode = e => {
+    return props.onViewMode(e);
   };
 
   return (
-    <Wrap>
+    <Wrap isDarkMode={props.isDarkMode}>
       <span className="inputs">
-        <Search onSearchValue={props.onSearchValue} />
-        <TextModifier onTypeValue={props.onTypeValue} />
+        <Search
+          onSearchValue={props.onSearchValue}
+          isDarkMode={props.isDarkMode}
+        />
+        <TextModifier
+          onTypeValue={props.onTypeValue}
+          isDarkMode={props.isDarkMode}
+        />
       </span>
       <span className="buttons">
-        <SizeSlider fontSize={props.fontSize} onFontSize={props.onFontSize} />
-        <DarkMode onDarkClick={onDarkClick} isDarkMode={props.isDarkMode} />
-        <ViewMode onViewClick={onViewClick} isListMode={props.isListMode} />
-        <Reset />
+        <SizeSlider
+          fontSize={props.fontSize}
+          onFontSize={props.onFontSize}
+          isDarkMode={props.isDarkMode}
+        />
+        <DarkMode onDarkMode={onDarkMode} isDarkMode={props.isDarkMode} />
+        <ViewMode
+          onFontSize={props.onFontSize}
+          onViewMode={onViewMode}
+          isListMode={props.isListMode}
+          isDarkMode={props.isDarkMode}
+        />
+        <Reset
+          isDarkMode={props.isDarkMode}
+          onDarkMode={props.onDarkMode}
+          onFontSize={props.onFontSize}
+          onViewMode={props.onViewMode}
+          onSearchValue={props.onSearchValue}
+          onTypeValue={props.onTypeValue}
+        />
       </span>
     </Wrap>
   );
@@ -36,7 +59,7 @@ const Toolbar = ({ ...props }) => {
 //* styled-component < 💅>
 const Wrap = styled.div`
   margin: 30px 0;
-  border: 0.5px black solid;
+  border: 0.5px ${props => (props.isDarkMode ? "#fff" : "#606060")} solid;
   border-radius: 50px;
   height: 56px;
   display: flex;
@@ -48,7 +71,8 @@ const Wrap = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 50%;
+    flex: 1;
   }
 
   .buttons {

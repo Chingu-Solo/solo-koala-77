@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import styled from "styled-components";
@@ -9,6 +9,7 @@ import googleFonts from "./api/googleFonts";
 import Header from "./components/header/Header";
 import Toolbar from "./components/toolbar/Toolbar";
 import FontsCard from "./components/FontsCard";
+import SideDrawer from "./components/header/SideDrawer/SideDrawer";
 
 // Font Awesome Library
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -21,10 +22,28 @@ import {
   faSun,
   faMoon,
   faSearch,
-  faPlus
+  faPlus,
+  faHome,
+  faStar,
+  faNewspaper,
+  faInfoCircle
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, far, faBars, faTh, faRedoAlt, faSun, faMoon, faSearch, faPlus);
+library.add(
+  fab,
+  far,
+  faBars,
+  faTh,
+  faRedoAlt,
+  faSun,
+  faMoon,
+  faSearch,
+  faPlus,
+  faHome,
+  faStar,
+  faNewspaper,
+  faInfoCircle
+);
 // === COMPONENT === \\
 
 const App = () => {
@@ -36,6 +55,7 @@ const App = () => {
   const [fontSize, setFontSize] = useState(40);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isListMode, setIsListMode] = useState(false);
+  const [isSideDrawer, setIsSideDrawer] = useState(false);
   // ---------------------------->
 
   // <----------------------------
@@ -66,20 +86,34 @@ const App = () => {
   });
 
   return (
-    <Wrap isListMode={isListMode}>
+    <Wrap className="Wrapper" isListMode={isListMode}>
       <Normalize isDarkMode={isDarkMode} isListMode={isListMode} />
-      <Header />
+
+      <SideDrawer
+        className="sideNav-open"
+        isSideDrawer={isSideDrawer}
+        isDarkMode={isDarkMode}
+        onOutsideClick={e => setIsSideDrawer(e)}
+      />
+
+      <Header
+        isDarkMode={isDarkMode}
+        isSideDrawer={isSideDrawer}
+        onButtonSideDrawer={e => setIsSideDrawer(e)}
+      />
       <Toolbar
         // get the search value and update search State
+        searchValue={searchValue}
         onSearchValue={e => setSearchValue(e)}
         // get the typed value and update type state
+        typeValue={typeValue}
         onTypeValue={e => setTypeValue(e)}
-        onDarkClick={e => setIsDarkMode(e)}
         isDarkMode={isDarkMode}
-        onViewClick={e => setIsListMode(e)}
+        onDarkMode={e => setIsDarkMode(e)}
         isListMode={isListMode}
-        onFontSize={e => setFontSize(e)}
+        onViewMode={e => setIsListMode(e)}
         fontSize={fontSize}
+        onFontSize={e => setFontSize(e)}
       />
       <FontsCard
         filterFonts={filterFonts}
@@ -100,12 +134,18 @@ const App = () => {
 const Normalize = createGlobalStyle`
 *{
   box-sizing: border-box;
-  font-family: ubuntu, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 body{
+  font-family: ubuntu, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
-  padding: 70px 120px;
-  background-color: ${props => (props.isDarkMode ? "#222" : "#fff")}
+  padding: 64px 60px 48px;
+  background-color: ${props => (props.isDarkMode ? "#222" : "#fff")};
+  word-wrap: anywhere;
+
+  @media (max-width: 480px ){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 `;
 
