@@ -6,14 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const SideDrawer = ({ ...props }) => {
   // add event listener to detect click outside the side navbar
   useEffect(() => {
-    // when the side navbar is open close it only when click outside of it
+    // handle click outside side navbar when open
     const handleClick = e => {
-      e.target.className.includes("sideNav")
-        ? props.onOutsideClick(true)
-        : props.onOutsideClick(false);
+      console.log(e);
+      // if side navbar open and click inside sidebar (300px)
+      props.isSideDrawer && e.clientX < 300
+        ? props.onOutsideClick(true) // keep it open
+        : props.onOutsideClick(false); // close
     };
-    // eventListener
-    document.addEventListener("mousedown", handleClick);
+    // eventListener only when side navbar open
+    props.isSideDrawer
+      ? document.addEventListener("mousedown", handleClick)
+      : document.removeEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, [props]);
 
