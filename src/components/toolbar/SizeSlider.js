@@ -33,56 +33,12 @@ const SizeSlider = ({ ...props }) => {
 //* styled-component < 💅>
 const Wrap = styled.div`
   display: flex;
-  /* ---------------------->
-  Applying base CSS styles
-  <---------------------- */
-  */ input[type="range"] {
-    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    width: 100%; /* Specific width is required for Firefox. */
-    background: transparent; /* Otherwise white in Chrome */
-  }
 
-  input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
+  input {
+    @media (max-width: 1250px) {
+      display: none;
+    }
   }
-
-  input[type="range"]:focus {
-    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-  }
-
-  input[type="range"]::-ms-track {
-    width: 100%;
-    cursor: pointer;
-
-    /* Hides the slider so custom styles can be added */
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  /* ------------------->
-  Styling the Thumb
-  <---------------------- */
-  /* for Firefox */
-  input[type="range"]::-moz-range-thumb {
-    background: rgb(255, 82, 82);
-    cursor: pointer;
-    border: none;
-  }
-  /* for WebKit/Blink */
-  input[type="range"]::-webkit-slider-thumb {
-    background: rgb(255, 82, 82);
-    cursor: pointer;
-    border: none;
-  }
-  /* for IE */
-  input[type="range"]::-ms-thumb {
-    background: rgb(255, 82, 82);
-    cursor: pointer;
-    border: none;
-  }
-  /* ------------------->
-  Styling the Track
-  <---------------------- */
 `;
 
 export default SizeSlider;

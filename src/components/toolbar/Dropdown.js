@@ -32,6 +32,13 @@ const SizeDropdown = ({ ...props }) => {
 
 //* styled-component < 💅>
 const Wrap = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
   .dropdown {
   }
   .toggle {

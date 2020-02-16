@@ -50,7 +50,7 @@ const HeaderWrap = styled.header`
   top: 0;
   left: 0;
   height: 70px;
-  padding: 0 120px;
+  padding: 0 60px;
   align-items: center;
   display: flex;
   /* justify-content: space-between; */
@@ -66,7 +66,6 @@ const NavWrap = styled.nav`
   display: flex;
 `;
 const NavItem = styled.a`
-  /* When active --> color: #ff5252; */
   text-decoration: none;
   color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
   margin-left: 32px;
@@ -77,6 +76,10 @@ const NavItem = styled.a`
   &:hover {
     color: #ff5252;
     text-decoration: none;
+  }
+
+  @media (max-width: 1250px) {
+    display: none;
   }
 `;
 

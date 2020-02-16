@@ -58,6 +58,7 @@ const MyCard = styled.div`
   }
 
   .fontTitle {
+    font-family: ubuntu;
     display: flex;
     justify-content: space-between;
     font-size: 9pt;

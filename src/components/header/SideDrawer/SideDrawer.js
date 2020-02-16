@@ -8,7 +8,6 @@ const SideDrawer = ({ ...props }) => {
   useEffect(() => {
     // handle click outside side navbar when open
     const handleClick = e => {
-      console.log(e);
       // if side navbar open and click inside sidebar (300px)
       props.isSideDrawer && e.clientX < 300
         ? props.onOutsideClick(true) // keep it open

@@ -13,7 +13,6 @@ const Button = ({ ...props }) => {
 const MyButton = styled.button`
   border: none;
   background: none;
-  margin: 0 10px;
   font-size: 20px;
   color: ${props => (props.isDarkMode ? "#fff" : "#606060")};
 `;
