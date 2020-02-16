@@ -50,18 +50,18 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 #### Style
 
 - [x] Sample text in each card should be displayed in the corresponding font
-- [ ] Buttons/links should be evident (make sure the cursor changes, etc.)
-- [ ] Implement a way to handle overflow from sample text in the font cards, as the font size is adjustable
+- [x] Buttons/links should be evident (make sure the cursor changes, etc.)
+- [x] Implement a way to handle overflow from sample text in the font cards, as the font size is adjustable
 
 #### Functionality
 
 - [x] Text typed into the custom text (type something) box should immediately change the sample text in each font card
 - [x] The sample text should return to the default sample if the input box (type something) no longer has any input
 - [x] Font size chooser should have at least four sizes and should immediately change the sample text font size in each font card
-- [ ] Implement the clickable 'reset' icon on the far right of the major navigation; it should reset the page as if the page were reloaded _(do not actually reset the page)_
+- [x] Implement the clickable 'reset' icon on the far right of the major navigation; it should reset the page as if the page were reloaded _(do not actually reset the page)_
 - [x] On load, the page should display fonts sorted by current popularity, as returned by the Google Fonts Developer API _(see below)_
 - [x] The search feature should be fully functional and should display matching fonts (it's up to you if you want to do this via a 'submit' or through onchange)
-- [ ] When the search input is cleared (via reset button or manually), the fonts should automaticaly display sorted by popularity again
+- [x] When the search input is cleared (via reset button or manually), the fonts should automaticaly display sorted by popularity again
 
 #### Other
 
@@ -70,7 +70,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 
 ### **Extras (Not Required)**
 
-- [ ] Make your design fully responsive (small/large/portrait/landscape, etc.)
+- [x] Make your design fully responsive (small/large/portrait/landscape, etc.)
 - [x] Implement the light/dark mode toggle buttons
 - [x] Implement the change display icon so you can flip between a grid layout and a list layout for the font cards
 
