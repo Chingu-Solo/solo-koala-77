@@ -66,7 +66,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 #### Other
 
 - [x] Your repo needs to have a robust README.md
-- [ x Make sure that there are no errors in the developer console before submitting
+- [x] Make sure that there are no errors in the developer console before submitting
 
 ### **Extras (Not Required)**
 
