@@ -44,8 +44,8 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 - [x] Nav with Major navigation / page-manipulation _(search, custom text, font-size, dark/light mode, grid/list mode, and reset)_
 - [x] Main section for the font cards
 - [x] Font cards which display the Font Name, the sample text, and an add button (the font creator is **not** available via the api, so it is not required in tiers 2 or 3)
-- [ ] Back-to-top button that allows users to click and scroll back up to the top _(there could be up to 959 fonts displayed, so you need this!)_
-- [ ] Footer section with your developer information
+- [x] Back-to-top button that allows users to click and scroll back up to the top _(there could be up to 959 fonts displayed, so you need this!)_
+- [x] Footer section with your developer information
 
 #### Style
 
@@ -66,7 +66,7 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 #### Other
 
 - [x] Your repo needs to have a robust README.md
-- [ ] Make sure that there are no errors in the developer console before submitting
+- [ x Make sure that there are no errors in the developer console before submitting
 
 ### **Extras (Not Required)**
 
