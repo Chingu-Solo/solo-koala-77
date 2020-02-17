@@ -10,10 +10,12 @@ import Header from "./components/header/Header";
 import Toolbar from "./components/toolbar/Toolbar";
 import FontsCard from "./components/FontsCard";
 import SideDrawer from "./components/header/SideDrawer/SideDrawer";
+import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
 // Font Awesome Library
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+
 import { far } from "@fortawesome/free-regular-svg-icons";
 import {
   faBars,
@@ -26,11 +28,11 @@ import {
   faHome,
   faStar,
   faNewspaper,
-  faInfoCircle
+  faInfoCircle,
+  faArrowUp
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
-  fab,
   far,
   faBars,
   faTh,
@@ -42,7 +44,8 @@ library.add(
   faHome,
   faStar,
   faNewspaper,
-  faInfoCircle
+  faInfoCircle,
+  faArrowUp
 );
 // === COMPONENT === \\
 
@@ -115,6 +118,8 @@ const App = () => {
         fontSize={fontSize}
         onFontSize={e => setFontSize(e)}
       />
+      <BackToTop />
+      <Footer />
       <FontsCard
         filterFonts={filterFonts}
         isListMode={isListMode}
