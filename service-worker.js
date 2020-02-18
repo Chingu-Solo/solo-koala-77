@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/solo-koala-77/precache-manifest.f13ed671bb8210394904fd7f5f6f6ecc.js"
+  "/solo-koala-77/precache-manifest.198a1134d35bfc69c6ea19b2db8b4974.js"
 );
 
 self.addEventListener('message', (event) => {
