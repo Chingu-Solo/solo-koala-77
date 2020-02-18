@@ -70,7 +70,6 @@ const App = () => {
     const response = await googleFonts.get("/webfonts", {
       params: {
         key: process.env.REACT_APP_GOOGLE_FONTS_API,
-        // key: "AIzaSyB7sspcPOY2yUIbybvCgNbIT2OPagvd_jE",
         sort: "popularity"
       }
     });
