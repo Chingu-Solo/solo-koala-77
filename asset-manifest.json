@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/solo-koala-77/static/js/main.1f08374c.chunk.js",
-    "main.js.map": "/solo-koala-77/static/js/main.1f08374c.chunk.js.map",
+    "main.js": "/solo-koala-77/static/js/main.c4af6e5b.chunk.js",
+    "main.js.map": "/solo-koala-77/static/js/main.c4af6e5b.chunk.js.map",
     "runtime-main.js": "/solo-koala-77/static/js/runtime-main.a0d5b1e6.js",
     "runtime-main.js.map": "/solo-koala-77/static/js/runtime-main.a0d5b1e6.js.map",
     "static/css/2.47e06e2e.chunk.css": "/solo-koala-77/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.695c272c.chunk.js": "/solo-koala-77/static/js/2.695c272c.chunk.js",
-    "static/js/2.695c272c.chunk.js.map": "/solo-koala-77/static/js/2.695c272c.chunk.js.map",
+    "static/js/2.ed3ae5e2.chunk.js": "/solo-koala-77/static/js/2.ed3ae5e2.chunk.js",
+    "static/js/2.ed3ae5e2.chunk.js.map": "/solo-koala-77/static/js/2.ed3ae5e2.chunk.js.map",
     "index.html": "/solo-koala-77/index.html",
-    "precache-manifest.b590ad6506f795b8c68c999a7c131a98.js": "/solo-koala-77/precache-manifest.b590ad6506f795b8c68c999a7c131a98.js",
+    "precache-manifest.f13ed671bb8210394904fd7f5f6f6ecc.js": "/solo-koala-77/precache-manifest.f13ed671bb8210394904fd7f5f6f6ecc.js",
     "service-worker.js": "/solo-koala-77/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/solo-koala-77/static/css/2.47e06e2e.chunk.css.map",
-    "static/js/2.695c272c.chunk.js.LICENSE": "/solo-koala-77/static/js/2.695c272c.chunk.js.LICENSE"
+    "static/js/2.ed3ae5e2.chunk.js.LICENSE": "/solo-koala-77/static/js/2.ed3ae5e2.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.a0d5b1e6.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.695c272c.chunk.js",
-    "static/js/main.1f08374c.chunk.js"
+    "static/js/2.ed3ae5e2.chunk.js",
+    "static/js/main.c4af6e5b.chunk.js"
   ]
 }
