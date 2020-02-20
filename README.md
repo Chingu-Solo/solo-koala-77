@@ -1,6 +1,6 @@
 # Google Fonts API
 
-My robo-friend here will take you to the preview 👉<span style='font-size: 25px'>[🤖](https://chingu-solo.github.io/solo-koala-77/)</span> 👈
+###### My robo-friend here will take you to the preview 👉<span style='font-size: 25px'>[🤖](https://chingu-solo.github.io/solo-koala-77/)</span> 👈
 
 This project reproduces the Google Fonts website's look and most of its functionalities.
 
