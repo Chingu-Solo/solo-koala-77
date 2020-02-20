@@ -11,11 +11,14 @@ const Card = ({ ...props }) => {
 
   useEffect(() => {
     // extract Regular url if not available get the first one available
-    props.font.files["regular"]
-      ? setUrl(`'${props.font.files["regular"]}'`)
-      : setUrl(`'${Object.values(props.font.files)[0]}'`);
-  }, [props.font]);
 
+    props.font.files["regular"]
+      ? setUrl(`'${props.font.files["regular"].replace("http", "https")}'`) // replace http with https to add security and fix mixed active content error
+      : setUrl(
+          `'${Object.values(props.font.files)[0].replace("http", "https")}'`
+        );
+  }, [props.font]);
+  console.log(url);
   return (
     <MyCard
       fontSize={props.fontSize}
@@ -54,7 +57,7 @@ const MyCard = styled.div`
   /* apply the font's url */
   @font-face {
     font-family: ${props => props.family};
-    src: url(${props => props.url});
+    src: url(${props => props.url}) format("truetype");
   }
 
   .fontTitle {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import styled from "styled-components";
@@ -76,7 +76,7 @@ const App = () => {
     setFonts(response.data.items); // update state with promise
   };
   // --------------------------->
-  console.log(process.env);
+
   // <---------------------------
   // Fetch all fonts only when app first render /
   useEffect(() => {

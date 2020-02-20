@@ -1,10 +1,10 @@
 # Google Fonts API
 
+My robo-friend here will take you to the preview 👉<span style='font-size: 25px'>[🤖](https://chingu-solo.github.io/solo-koala-77/)</span> 👈
+
 This project reproduces the Google Fonts website's look and most of its functionalities.
 
-### 🚧 Project under construction 🚧
-
-This is a Tier 2 Solo Project made for [Chingu](https://www.chingu.io) Community. <br>
+This is a Tier 2 Solo Project I made for [Chingu](https://www.chingu.io). <br>
 
 Tier 2 realizes this project as a fully developed front-end app. A back-end is not necessary.
 
@@ -19,20 +19,17 @@ Tier 2 realizes this project as a fully developed front-end app. A back-end is n
 - [react-lazyload](https://github.com/twobin/react-lazyload) - Lazy load your component, image or anything matters the performance.
 - [FontAwesome/react](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component using SVG with JS
 - [react-bootstrap](https://react-bootstrap.github.io/) - The most popular front-end framework. Rebuilt for React.
+- [gh-pages](https://react-bootstrap.github.io/) - The most popular front-end framework. Rebuilt for React.
 
 ## 🧝‍♂️ Author
 
-#### [@Brewno88](https://github.com/Brewno88)
+- Github: [@Brewno88](https://github.com/Brewno88)
 
 - Twitter: [@VinnieCon73](https://twitter.com/VincHeadZo)
 
-<!-- ## 🤝 Contributing
+## 🚀 Deploy
 
-1. Fork it (https://github.com/Chingu-Solo/solo-koala-77/fork)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request -->
+I used the npm package [gh-pages](https://www.npmjs.com/package/gh-pages) to deploy this project.
 
 ## 📝 To-Do list
 
