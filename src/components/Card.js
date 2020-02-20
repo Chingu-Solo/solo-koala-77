@@ -18,7 +18,6 @@ const Card = ({ ...props }) => {
           `'${Object.values(props.font.files)[0].replace("http", "https")}'`
         );
   }, [props.font]);
-  console.log(url);
   return (
     <MyCard
       fontSize={props.fontSize}
