@@ -11,7 +11,6 @@ const Card = ({ ...props }) => {
 
   useEffect(() => {
     // extract Regular url if not available get the first one available
-
     props.font.files["regular"]
       ? setUrl(`'${props.font.files["regular"].replace("http", "https")}'`) // replace http with https to add security and fix mixed active content error
       : setUrl(
