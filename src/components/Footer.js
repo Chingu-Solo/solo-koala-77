@@ -12,12 +12,6 @@ const Footer = () => {
           <FontAwesomeIcon icon={faGithub} className="icon" />
           <span className="gh-user">Brewno88</span>
         </a>{" "}
-        as a
-        <a href="https://www.chingu.io/" className="chingu">
-          {" "}
-          Chingu
-        </a>{" "}
-        project
       </span>
     </Wrap>
   );
