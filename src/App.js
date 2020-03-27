@@ -84,8 +84,6 @@ const App = () => {
   }, []);
   // -------------------------->
 
-  console.log(process.env);
-
   const filterFonts = fonts.filter(font => {
     return font.family.toLowerCase().includes(searchValue.toLowerCase());
   });
